@@ -21,7 +21,7 @@ public class Grades {
     private String code;
 
     @Column(nullable = false)
-    private String value;
+    private Integer value;
 
     @ManyToOne
     @JoinColumn(name = "student_id")
