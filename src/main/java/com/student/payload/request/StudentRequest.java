@@ -22,5 +22,5 @@ public class StudentRequest {
 
     private String stdNumber;
 
-    private List<Grades> grades;
+    private List<GradesRequest> grades;
 }
