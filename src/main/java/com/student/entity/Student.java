@@ -23,7 +23,7 @@ public class Student {
     @Column(nullable = false)
     private String surname;
 
-    @Column(nullable = false)
+    @Column(nullable = false,unique = true)
     private String stdNumber;
 
     // This represents a one-to-many relationship: a student may have many grades.

@@ -1,9 +1,8 @@
 package com.student.payload.validator;
 
-import com.student.entity.Grades;
 import com.student.payload.messages.ErrorMessages;
+import com.student.payload.request.GradesRequest;
 import com.student.payload.request.StudentRequest;
-import org.springframework.stereotype.Component;
 
 // Validator class for validating student requests and grades
 public class NullEmptyAndNumberValidator {
@@ -28,19 +27,19 @@ public class NullEmptyAndNumberValidator {
     }
 
     // Method to validate grades
-    public static void validateGrades(Grades grades){
-        if (grades==null){
+    public static void validateGradesRequest(GradesRequest gradesRequest){
+        if (gradesRequest==null){
             throw new IllegalArgumentException(ErrorMessages.GRADES_NULL);
         }
 
-        if (isEmptyOrNull(grades.getCode())){
+        if (isEmptyOrNull(gradesRequest.getCode())){
             throw new IllegalArgumentException(ErrorMessages.CODE_NULL_OR_EMPTY);
         }
 
-        if (grades.getValue() == null){
+        if (gradesRequest.getValue() == null){
             throw new IllegalArgumentException(ErrorMessages.VALUE_NULL);
         }
-        if (grades.getValue()>100||grades.getValue()<0){
+        if (gradesRequest.getValue()>100||gradesRequest.getValue()<0){
             throw new IllegalArgumentException(ErrorMessages.VALUE_RANGE);
         }
     }
